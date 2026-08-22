@@ -226,14 +226,36 @@ export default function ConsolePage() {
 
       <Modal open={impOpen} onClose={() => setImpOpen(false)} title="Signed thinking-impressions">
         <p style={{ color: "var(--text-soft)", marginTop: 0, fontSize: "0.9rem" }}>
-          Each thinking window mints an HMAC-signed proof the agent genuinely reasoned — the
-          redeemable unit for the thinking-time ad layer. It cannot be spoofed by a client timer.
+          Each thinking window mints an HMAC-signed proof the agent genuinely reasoned — the redeemable unit
+          for the thinking-time ad layer. It cannot be spoofed by a client timer.
         </p>
-        <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem", maxHeight: 320, overflowY: "auto" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "0.6rem",
+            maxHeight: 320,
+            overflowY: "auto",
+          }}
+        >
           {impressions.map((imp) => (
-            <div key={imp.id} className="mono" style={{ fontSize: "0.72rem", padding: "0.6rem 0.75rem", border: "1px solid var(--line)", borderRadius: "var(--r-md)", background: "var(--bg-sunken)" }}>
-              <div style={{ color: "var(--accent)" }}>seq #{imp.seq} · turn {imp.turn}</div>
-              <div style={{ color: "var(--text-soft)", wordBreak: "break-all", marginTop: 4 }}>sig {imp.signature.slice(0, 40)}…</div>
+            <div
+              key={imp.id}
+              className="mono"
+              style={{
+                fontSize: "0.72rem",
+                padding: "0.6rem 0.75rem",
+                border: "1px solid var(--line)",
+                borderRadius: "var(--r-md)",
+                background: "var(--bg-sunken)",
+              }}
+            >
+              <div style={{ color: "var(--accent)" }}>
+                seq #{imp.seq} · turn {imp.turn}
+              </div>
+              <div style={{ color: "var(--text-soft)", wordBreak: "break-all", marginTop: 4 }}>
+                sig {imp.signature.slice(0, 40)}…
+              </div>
             </div>
           ))}
         </div>

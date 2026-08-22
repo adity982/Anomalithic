@@ -48,7 +48,17 @@ export function Toaster() {
     }
   }, [])
   return (
-    <div style={{ position: "fixed", right: 20, bottom: 20, display: "flex", flexDirection: "column", gap: 10, zIndex: 1000 }}>
+    <div
+      style={{
+        position: "fixed",
+        right: 20,
+        bottom: 20,
+        display: "flex",
+        flexDirection: "column",
+        gap: 10,
+        zIndex: 1000,
+      }}
+    >
       <AnimatePresence>
         {items.map((t) => (
           <motion.div
@@ -58,9 +68,24 @@ export function Toaster() {
             exit={{ opacity: 0, x: 40, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 30 }}
             className="card"
-            style={{ padding: "0.7rem 1rem", display: "flex", alignItems: "center", gap: "0.6rem", minWidth: 220, boxShadow: "var(--shadow-lg)" }}
+            style={{
+              padding: "0.7rem 1rem",
+              display: "flex",
+              alignItems: "center",
+              gap: "0.6rem",
+              minWidth: 220,
+              boxShadow: "var(--shadow-lg)",
+            }}
           >
-            <span style={{ width: 8, height: 8, borderRadius: 99, background: KIND_ACCENT[t.kind], boxShadow: `0 0 10px ${KIND_ACCENT[t.kind]}` }} />
+            <span
+              style={{
+                width: 8,
+                height: 8,
+                borderRadius: 99,
+                background: KIND_ACCENT[t.kind],
+                boxShadow: `0 0 10px ${KIND_ACCENT[t.kind]}`,
+              }}
+            />
             <span style={{ fontSize: "0.9rem" }}>{t.message}</span>
           </motion.div>
         ))}
@@ -115,14 +140,33 @@ export function Modal({
             transition={{ type: "spring", stiffness: 320, damping: 28 }}
             onClick={(e) => e.stopPropagation()}
             className="card"
-            style={{ width: "min(520px, 100%)", padding: "1.6rem", boxShadow: "var(--shadow-lg)", position: "relative", overflow: "hidden" }}
+            style={{
+              width: "min(520px, 100%)",
+              padding: "1.6rem",
+              boxShadow: "var(--shadow-lg)",
+              position: "relative",
+              overflow: "hidden",
+            }}
           >
             <div style={{ position: "absolute", top: -30, right: -20, opacity: 0.12 }}>
               <Monolith size={120} />
             </div>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: "1rem",
+              }}
+            >
               <h3 style={{ fontSize: "1.4rem" }}>{title}</h3>
-              <button type="button" className="btn" style={{ padding: "0.35rem 0.6rem" }} onClick={onClose} aria-label="Close">
+              <button
+                type="button"
+                className="btn"
+                style={{ padding: "0.35rem 0.6rem" }}
+                onClick={onClose}
+                aria-label="Close"
+              >
                 ✕
               </button>
             </div>
