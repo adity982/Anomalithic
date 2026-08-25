@@ -22,7 +22,7 @@ afterEach(() => {
 
 describe("createClient (against a live runtime server)", () => {
   test("delivers the final event without a trailing newline", async () => {
-    const event = { type: "done", finishReason: "stop" } as RuntimeEvent
+    const event = { type: "done", text: "", finishReason: "stop" } as RuntimeEvent
     vi.stubGlobal(
       "fetch",
       vi.fn(
